@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assessment</title>
+  <style type="text/css">
+    label{ width:100px;
+      display:inline-block;}
+
+      #form {border-radius:5px;
+        background-color:#DCDCDC;
+
+        }
+  </style>
+</head>
+<body style="background-color:#FFFAFA;">
+<form method="post" action="signup">
+  {% csrf_token %}
+
+<div id="form">
+  <h1>Registration detail</h1>
+
+  <label>Name</label>
+  <input type="text" name="Name"><br>
+  <label>username</label>
+  <input type="text" name="username"><br>
+  <label>email</label>
+  <input type="email" name="email" ><br>
+  <label>ph no</label>
+  <input type="number" name="ph no"><br>
+  <label>Gender</label><br>
+
+  <label>Male</label>
+  <input type="radio"><br>
+  <label>Female</label>
+  <input type="radio"><br>
+  <label>password</label>
+  <input type="password" name="password">
+  <label>confirm password</label>
+  <input type="password" name="confirm password"><br><br>
+  <input type="submit"><br><br>
+
+
+<input type="checkbox">
+  <div>I solemnly declare the information mentioned herein is true and correct to the best of my beliefs.
+    All the details provided above are genuine to the best of my belief and knowledge.
+    I hereby declare that the above particulars of facts and information stated are correct to the best of my belief and knowledge</div>
+<br>
+  <br>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+  <style type="text/css">
+    label{ width:100px;
+      display:inline-block;}
+
+      #form {border-radius:5px;
+        background-color:#DCDCDC;
+
+        }
+  </style>
+</head>
+<body style="background-color:#FFFAFA;">
+<form method="post" action="">
+  {% csrf_token %}
+
+<div id="form">
+  <h1>Login detail</h1>
+
+  <label>username</label>
+  <input type="text" name="username"><br>
+  <label>password</label>
+  <input type="password" name="password"><br><br>
+<!--  <button type="button"></button>-->
+    <input type="submit">
+
+
+<!--  <button type="button">-->
+<!--    <a href="new">test</a>-->
+<!--    </button>-->
+<!--  <input type="submit"><br>-->
+  <h5>click on register to create a new account </h5>
+  <button type="button">
+    <a href="signup">register</a>
+</button><br><br>
+</div>
+</form>
+</body>
+</html>

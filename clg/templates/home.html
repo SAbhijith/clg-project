@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dependent Dropdown in Django</title>
+</head>
+<body>
+<h1>New Form</h1>
+
+<form method="post" id="personForm" data-cities-url="{% url 'ajax_load_cities' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div id="form">
+
+
+  <label>Name</label>
+  <input type="text" name="Name"><br><br>
+  <label>Date of birth</label>
+  <input type="date" name="Date of birth"><br><br>
+  <label>Age</label>
+  <input type="text" name="Age" ><br><br>
+  <label>ph no</label>
+  <input type="number" name="ph no"><br><br>
+  <label>Gender</label>
+  <label>Male</label>
+  <input type="radio">
+  <label>Female</label>
+  <input type="radio"><br><br>
+  <label>email</label>
+  <input type="email" name="email"><br><br>
+  <label>Address</label>
+  <input type="text" name="address"><br><br>
+  <label>Department</label>
+  <input type="time"><br><br>
+  <label>Material</label>
+  <label> material1</label>
+  <input type="checkbox" name="material1">
+  <label> material2</label>
+  <input type="checkbox" name="material2">
+  <label> material3</label>
+  <input type="checkbox" name="material3"><br><br><br>
+<!--    <input type="submit" value="Submit">-->
+    <button type="button"><a href="submit">sub</a></button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_country").change(function () {
+        const url = $("#personForm").attr("data-cities-url");  // get the url of the `load_cities` view
+        const countryId = $(this).val();  // get the selected country ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'country_id': countryId       // add the country id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                $("#id_city").html(data);  // replace the contents of the city input with the data that came from the server
+                /*
+
+                let html_data = '<option value="">---------</option>';
+                data.forEach(function (city) {
+                    html_data += `<option value="${city.id}">${city.name}</option>`
+                });
+                console.log(html_data);
+                $("#id_city").html(html_data);
+
+                */
+            }
+        });
+
+    });
+</script>
+
+</body>
+</html>
